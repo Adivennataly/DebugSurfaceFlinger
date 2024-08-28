@@ -225,7 +225,7 @@ properti bersifat debugging, tidak membutuhkan akses root.
   
 - bisa juga dengan menambah properti secara manual (copy-paste dari file), untuk pengguna non-root harus menggunakan command `setprop debug.hwui.renderer` tidak bisa menggunakan `resetprop -n debug.hwui.renderer`
 
-Jika ingin menonaktifkan cukup dengan restart/reboot perangkat (karena properti bersifat debugging atau sementara).
+Jika ingin menonaktifkan cukup dengan restart/reboot perangkat (karena properti hanya bersifat debugging atau sementara, tidak permanen).
 
 *tidak menyebabkan softbrick ataupun bootloop.
 
