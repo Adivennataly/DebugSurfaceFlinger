@@ -220,11 +220,17 @@ berikut penjelasan properti Debugging yang berhubungan dengan SurfaceFlinger dan
 ## Syarat yang dibutuhkan
 properti bersifat debugging, tidak membutuhkan akses root.
 
-- Download file service.sh lalu gunakan terminal (ADB/LADB/Brevent/Termux) untuk menjalankan script file (service-nr.sh untuk nonroot) :
-  `sh /storage/emulated/0/Download/service.sh`
+- Download file service.sh lalu gunakan terminal (ADB/LADB/Brevent/Termux) untuk menjalankan script file :
+
+      sh /storage/emulated/0/Download/service.sh
   
-- bisa juga dengan menambah properti secara manual (copy-paste dari file),
-  untuk pengguna non-root harus menggunakan command `setprop debug.hwui.renderer` tidak bisa menggunakan `resetprop -n debug.hwui.renderer`
+- untuk pengguna non-root :
+
+      sh /storage/emulated/0/Download/service-nr.sh
+  
+- bisa juga dengan menambah properti secara manual (copy-paste dari file)
+  untuk pengguna non-root harus menggunakan command `setprop debug.hwui.renderer`
+  tidak bisa menggunakan `resetprop -n debug.hwui.renderer`
 
 Jika ingin menonaktifkan cukup dengan restart/reboot perangkat karena properti hanya bersifat debugging atau sementara, tidak permanen.
 
