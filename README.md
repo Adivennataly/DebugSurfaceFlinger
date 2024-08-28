@@ -163,7 +163,7 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
    - skiaglthreaded : menggunakan Skia dengan backend OpenGL dengan dukungan multi-threading.
    - threaded : menggunakan multi-threading tanpa menggunakan jenis rendering spesifik yang digunakan.
    - gles : menggunakan OpenGL ES sebagai backend rendering.
-   - vulkan : menggunakan Vulkan sebagai backend rendering.
+   - vulkan : belum didukung, sebagai opsi bisa menggunakan "threaded".
 
    Pengaturan ini memungkinkan developer untuk menguji dan mengoptimalkan performa grafis dengan memilih backend yang paling sesuai dengan perangkat keras atau aplikasi tertentu.
 
