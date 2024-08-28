@@ -18,6 +18,7 @@ Optimalisasi Performa: Menggunakan akselerasi perangkat keras (GPU) untuk mengop
 ## Apa itu Debugging SurfaceFlinger?
 
 Debugging SurfaceFlinger adalah proses untuk mendiagnosis, memantau, dan mengoptimalkan kinerja SurfaceFlinger, sebuah komponen penting dalam sistem Android yang bertanggung jawab untuk mengelola semua tampilan grafis di layar.
+
 SurfaceFlinger bertugas mengompilasikan buffer dari berbagai aplikasi atau layer menjadi satu gambar yang kemudian ditampilkan di layar.
 
 Ini adalah bagian integral dari sistem rendering grafis Android, yang menggunakan akselerasi perangkat keras (GPU) untuk memastikan tampilan yang halus dan responsif.
