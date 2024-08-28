@@ -23,26 +23,25 @@ SurfaceFlinger bertugas mengompilasikan buffer dari berbagai aplikasi atau layer
 Ini adalah bagian integral dari sistem rendering grafis Android, yang menggunakan akselerasi perangkat keras (GPU) untuk memastikan tampilan yang halus dan responsif.
 
 
-Debugging SurfaceFlinger melibatkan berbagai teknik dan alat untuk memantau, menganalisis, dan mengoptimalkan proses rendering dan komposisi grafis yang dikelola oleh SurfaceFlinger. Berikut adalah beberapa aspek penting dari debugging SurfaceFlinger:
+Debugging SurfaceFlinger melibatkan berbagai teknik dan alat untuk memantau, menganalisis, dan mengoptimalkan proses rendering dan komposisi grafis yang dikelola oleh SurfaceFlinger.
 
 ## Memantau Kinerja Rendering:
 
 Mengukur dan menganalisis kinerja rendering grafis, seperti frame rate, latensi, dan waktu komposisi.
 Menggunakan alat seperti Systrace atau Perfetto untuk mengumpulkan dan memvisualisasikan data kinerja SurfaceFlinger.
-Mengidentifikasi dan Memperbaiki Masalah:
 
+Mengidentifikasi dan Memperbaiki Masalah:
 Mengidentifikasi masalah seperti frame drop, stuttering, lag, atau tearing pada layar.
 Menggunakan log debugging dan statistik kinerja untuk menemukan penyebab masalah, misalnya, masalah sinkronisasi, backlog buffer, atau bottleneck GPU.
 
 Menyesuaikan Pengaturan untuk Optimasi:
-
 Menggunakan berbagai parameter dan properti debugging (seperti yang telah dijelaskan sebelumnya) untuk mengontrol dan mengoptimalkan perilaku SurfaceFlinger.
 
 Properti seperti "debug.sf.early.app.duration", "debug.sf.enable_hwc_vds", dan lainnya memungkinkan pengembang mengontrol aspek seperti timing, cache layer, backpressure, dan penggunaan akselerasi perangkat keras.
 
 
 ## Penjelasan Properti
-berikut penjelasan properti Debugging yang berhubungan dengan SurfaceFlinger dan GPU :
+berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFlinger :
 
 
 - debug.sf.early.app.duration:
