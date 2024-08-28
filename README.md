@@ -41,50 +41,53 @@ Menggunakan berbagai parameter dan properti debugging (seperti yang telah dijela
 Properti seperti "debug.sf.early.app.duration", "debug.sf.enable_hwc_vds", dan lainnya memungkinkan pengembang mengontrol aspek seperti timing, cache layer, backpressure, dan penggunaan akselerasi perangkat keras.
 
 
-berikut penjelasan properti Debugging yang berhubungan dengan SurfaceFlinger dan GPU.
+## Penjelasan Properti
+berikut penjelasan properti Debugging yang berhubungan dengan SurfaceFlinger dan GPU :
 
 
 - debug.sf.early.app.duration:
 
-Properti ini mungkin digunakan untuk mengukur atau mencatat durasi waktu (dalam milidetik) yang dibutuhkan oleh aplikasi untuk melakukan rendering lebih awal dari waktu target untuk frame tertentu. Ini bisa berguna untuk menganalisis berapa lama waktu yang diperlukan aplikasi untuk siap sebelum frame benar-benar ditampilkan di layar.
+  Properti ini mungkin digunakan untuk mengukur atau mencatat durasi waktu (dalam milidetik) yang dibutuhkan oleh aplikasi untuk melakukan rendering lebih awal dari waktu target untuk frame tertentu. Ini bisa berguna untuk menganalisis berapa lama waktu yang diperlukan aplikasi untuk siap sebelum frame benar-benar ditampilkan di layar.
 
 Dalam konteks debugging dan pengoptimalan performa grafis, properti ini membantu mengidentifikasi apakah aplikasi memulai proses rendering lebih awal atau cukup waktu untuk memastikan tampilan yang lancar tanpa adanya frame drop (penurunan frame).
 
 
 - debug.sf.late.app.duration:
 
-Properti ini mengukur atau mencatat durasi waktu (dalam milidetik) yang dibutuhkan oleh aplikasi ketika rendering terlambat atau melampaui waktu target frame tertentu. Ini berguna untuk mendeteksi frame yang ditampilkan terlambat (frame drops) yang dapat menyebabkan stuttering atau lag dalam animasi atau gameplay.
+  Properti ini mengukur atau mencatat durasi waktu (dalam milidetik) yang dibutuhkan oleh aplikasi ketika rendering terlambat atau melampaui waktu target frame tertentu. Ini berguna untuk mendeteksi frame yang ditampilkan terlambat (frame drops) yang dapat menyebabkan stuttering atau lag dalam animasi atau gameplay.
 
 Jika durasi ini terlalu lama, pengembang dapat menggunakan informasi ini untuk mengidentifikasi bagian kode atau proses rendering yang menyebabkan keterlambatan dan mengoptimalkan aplikasi agar lebih responsif dan lancar.
 
 
 - debug.sf.early.sf.duration:
 
-Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger untuk menyelesaikan tugasnya lebih awal dari waktu yang dijadwalkan untuk menampilkan frame tertentu.
+  Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger untuk menyelesaikan tugasnya lebih awal dari waktu yang dijadwalkan untuk menampilkan frame tertentu.
 
 Nilai ini menunjukkan seberapa cepat SurfaceFlinger dapat memproses dan mengompilasikan semua buffer untuk frame sebelum batas waktu. Nilai yang lebih rendah menunjukkan kinerja yang baik, di mana SurfaceFlinger mampu menyelesaikan tugas lebih cepat dari waktu yang diharapkan.
 
 
 - debug.sf.late.sf.duration:
 
-Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger jika terjadi keterlambatan dalam menyelesaikan tugasnya.
+  Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger jika terjadi keterlambatan dalam menyelesaikan tugasnya.
 
 Nilai ini menunjukkan seberapa sering atau seberapa lama SurfaceFlinger tertunda dalam melakukan komposisi frame. Nilai yang lebih tinggi biasanya menunjukkan masalah performa, di mana SurfaceFlinger tidak dapat memproses buffer dalam waktu yang cukup singkat untuk mencegah penurunan kualitas tampilan (seperti stuttering atau lag).
 
 - debug.sf.set_idle_timer_ms:
 
-Properti ini menentukan waktu dalam milidetik setelah SurfaceFlinger akan memasuki mode "idle" (diam) jika tidak ada aktivitas grafis yang terjadi. Ketika perangkat dalam mode idle, ini menghemat daya dengan menurunkan frekuensi pembaruan layar.
+  Properti ini menentukan waktu dalam milidetik setelah SurfaceFlinger akan memasuki mode "idle" (diam) jika tidak ada aktivitas grafis yang terjadi. Ketika perangkat dalam mode idle, ini menghemat daya dengan menurunkan frekuensi pembaruan layar.
 Nilai ini mengatur berapa lama waktu tunggu setelah tidak ada frame yang diminta untuk ditampilkan.
 
 Jika nilai ini terlalu kecil, perangkat mungkin sering berpindah ke dan dari mode idle, yang bisa berdampak pada efisiensi daya dan performa. Nilai yang lebih tinggi bisa menunda transisi ke mode idle, menjaga layar tetap aktif lebih lama, yang bisa meningkatkan kelancaran animasi tetapi juga mengonsumsi lebih banyak daya.
 
 
-- debug.sf.hw & debug.egl.hw:
+- debug.sf.hw:
 
-• debug.sf.hw: Properti ini biasanya digunakan untuk mengaktifkan atau menonaktifkan akselerasi perangkat keras untuk SurfaceFlinger. Nilai "1" mengaktifkan akselerasi perangkat keras, sedangkan "0" menonaktifkannya.
+  Properti ini biasanya digunakan untuk mengaktifkan atau menonaktifkan akselerasi perangkat keras untuk SurfaceFlinger. Nilai "1" mengaktifkan akselerasi perangkat keras, sedangkan "0" menonaktifkannya.
 
 
-• debug.egl.hw: Properti ini berkaitan dengan penggunaan akselerasi perangkat keras untuk EGL (OpenGL for Embedded Systems), yang merupakan antarmuka antara rendering OpenGL dan lapisan tampilan.
+• debug.egl.hw:
+
+  Properti ini berkaitan dengan penggunaan akselerasi perangkat keras untuk EGL (OpenGL for Embedded Systems), yang merupakan antarmuka antara rendering OpenGL dan lapisan tampilan.
 
 Sama seperti debug.sf.hw, nilai "1" mengaktifkan akselerasi perangkat keras dan "0" menonaktifkannya.
 
@@ -99,19 +102,17 @@ Jika properti ini diatur, SurfaceFlinger dapat mengambil buffer yang belum ditan
 Mengaktifkan properti ini bisa memperbaiki masalah latensi grafis, tetapi juga dapat meningkatkan risiko tampilan frame yang belum selesai atau tidak lengkap jika buffer tidak siap tepat waktu.
 
 
-- debug.sf.high_fps_early_app_phase_offset_ns & debug.sf.high_fps_late_app_phase_offset_ns:
-
-Kedua properti ini digunakan untuk mengontrol fase offset aplikasi pada frame rate tinggi.
-
-• debug.sf.high_fps_early_app_phase_offset_ns: Menentukan offset waktu (dalam nanodetik) untuk fase awal aplikasi dalam mode FPS tinggi.
-
+- debug.sf.high_fps_early_app_phase_offset_ns:
+ 
+  Menentukan offset waktu (dalam nanodetik) untuk fase awal aplikasi dalam mode FPS tinggi.
 Ini mengatur seberapa awal aplikasi harus memulai rendering dalam skenario frame rate tinggi, membantu meminimalkan latensi.
 
-• debug.sf.high_fps_late_app_phase_offset_ns: Menentukan offset waktu (dalam nanodetik) untuk fase akhir aplikasi dalam mode FPS tinggi.
+- debug.sf.high_fps_late_app_phase_offset_ns:
 
+  Menentukan offset waktu (dalam nanodetik) untuk fase akhir aplikasi dalam mode FPS tinggi.
 Ini mengatur seberapa terlambat aplikasi dapat menunda rendering dalam skenario frame rate tinggi tanpa menyebabkan masalah tampilan.
 
-
+Kedua properti ini digunakan untuk mengontrol fase offset aplikasi pada frame rate tinggi.
 Mengoptimalkan nilai-nilai ini memungkinkan pengaturan yang lebih presisi untuk aplikasi yang membutuhkan performa tinggi (seperti game atau aplikasi AR/VR).
 
 
