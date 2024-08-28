@@ -143,20 +143,25 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
   Properti ini mengatur jenis renderer yang digunakan oleh HWUI (Hardware UI Rendering) di Android. HWUI adalah sistem rendering GPU yang digunakan untuk merender antarmuka pengguna di aplikasi Android.
 
-   Contoh nilai:
-   "skiagl": Menggunakan Skia OpenGL backend.
-   "skiavk": Menggunakan Skia Vulkan backend.
+   value:
+   - opengl : menggunakan OpenGL dan memang digunakan sebagai rendering default untuk HWUI.
+   - vulkan : menggunakan Vulkan backend yang lebih efisien terutama untuk Game, namun tidak optimal di banyak perangkat dan aplikasi.
+   - skiagl : menggunakan Skia OpenGL backend (Skia adalah versi Lite, lebih ringan)
+   - skiavk : menggunakan Skia Vulkan backend (Skia adalah versi Lite, lebih ringan)
 
-  Nilai ini memungkinkan pengembang untuk memilih antara backend OpenGL atau Vulkan untuk rendering, tergantung pada perangkat dan kebutuhan aplikasi. Vulkan umumnya menawarkan kinerja yang lebih baik dan lebih efisien untuk perangkat modern.
+  value ini memungkinkan developer atau pengguna untuk memilih antara backend OpenGL atau Vulkan untuk rendering, tergantung pada perangkat dan kebutuhan aplikasi. Vulkan umumnya menawarkan kinerja yang lebih baik dan lebih efisien untuk perangkat modern.
 
 
 - debug.renderengine.backend:
 
   Properti ini menentukan backend rendering yang akan digunakan oleh RenderEngine, komponen Android yang menangani tugas-tugas komposisi grafis.
 
-   Contoh nilai:
-   "gles": Menggunakan OpenGL ES sebagai backend rendering.
-   "vulkan": Menggunakan Vulkan sebagai backend rendering.
+   value:
+   - skiagl : menggunakan Skia dengan backend OpenGL yang lebih ringan.
+   - skiaglthreaded : menggunakan Skia dengan backend OpenGL dengan dukungan multi-threading.
+   - threaded : menggunakan multi-threading tanpa menggunakan jenis rendering spesifik yang digunakan.
+   - gles : menggunakan OpenGL ES sebagai backend rendering.
+   - vulkan : menggunakan Vulkan sebagai backend rendering.
 
    Pengaturan ini memungkinkan pengembang atau insinyur sistem untuk menguji dan mengoptimalkan performa grafis dengan memilih backend yang paling sesuai dengan perangkat keras atau aplikasi tertentu.
 
@@ -165,14 +170,21 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
   Properti ini mengatur backend grafis untuk ANGLE (Almost Native Graphics Layer Engine), sebuah lapisan abstraksi yang memungkinkan aplikasi menggunakan API grafis OpenGL ES di atas backend lain, seperti Direct3D (di Windows) atau Vulkan.
 
-   Contoh nilai:
-   "default": Menggunakan backend default yang ditentukan oleh ANGLE.
-   "d3d11": Menggunakan Direct3D 11 sebagai backend.
-   "vulkan": Menggunakan Vulkan sebagai backend.
+   value:
+   - default : menggunakan backend default yang ditentukan oleh ANGLE.
+   - d3d11 : menggunakan Direct3D 11 sebagai backend.
+   - vulkan : menggunakan Vulkan sebagai backend.
 
   Ini berguna untuk pengujian lintas platform atau untuk memastikan kompatibilitas grafis yang lebih luas dengan memilih backend yang lebih cocok dengan perangkat keras atau sistem operasi.
 
+- debug.angle.overlay:
 
+  Properti ini mengontrol overlay debugging ANGLE, yang menyediakan informasi tentang konfigurasi dan status rendering ANGLE saat ini.
+
+  value:
+  - true : mengaktifkan overlay untuk menampilkan informasi yang dibutuhkan, seperti backend yang digunakan, versi driver, dan statistik rendering.
+  - false : menonaktifkan overlay debugging (disarankan).
+ 
 - debug.sf.enable_hwc_vds:
 
   Properti ini mengaktifkan Hardware Composer Virtual Display Support (HWC VDS). Hardware Composer adalah komponen di Android yang membantu mengelola berbagai layer tampilan menggunakan akselerasi perangkat keras.
