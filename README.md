@@ -5,7 +5,7 @@ SurfaceFlinger adalah pengelola komposisi di sistem Android yang menggabungkan b
 Ini bertanggung jawab untuk menangani tugas-tugas penting seperti mengelola frame buffer, menangani synchronization antar proses grafis, memastikan refresh rate yang optimal, dan mengelola berbagai layer grafis (misalnya, aplikasi, status bar, navigasi, dll).
 
 
-Fungsi Utama SurfaceFlinger:
+Fungsi Utama SurfaceFlinger :
 
 Rendering dan Komposisi: SurfaceFlinger mengambil data dari buffer grafis yang dihasilkan oleh aplikasi dan menyusunnya ke dalam satu gambar yang utuh untuk ditampilkan di layar.
 
