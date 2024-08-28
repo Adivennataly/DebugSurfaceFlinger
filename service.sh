@@ -1,0 +1,1 @@
+resetprop -n debug.hwui.renderer vulkan
