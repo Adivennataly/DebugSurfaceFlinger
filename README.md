@@ -146,9 +146,11 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
    value:
    - opengl : menggunakan OpenGL dan memang digunakan sebagai rendering default untuk HWUI.
    - vulkan : menggunakan Vulkan backend yang lebih efisien terutama untuk Game, namun tidak optimal di banyak perangkat dan aplikasi.
-   - skiagl : menggunakan Skia OpenGL backend (Skia adalah versi Lite, lebih ringan)
-   - skiavk : menggunakan Skia Vulkan backend (Skia adalah versi Lite, lebih ringan)
-
+   - skiagl : menggunakan Skia dengan backend OpenGL.
+   - skiavk : menggunakan Skia dengan backend Vulkan.
+ 
+  Skia mengacu pada Skia Graphics Library sebagai mesin rendering grafis 2D (tidak disarankan untuk gaming yang membutuhkan grafis 3D).
+  
   value ini memungkinkan developer atau pengguna untuk memilih antara backend OpenGL atau Vulkan untuk rendering, tergantung pada perangkat dan kebutuhan aplikasi. Vulkan umumnya menawarkan kinerja yang lebih baik dan lebih efisien untuk perangkat modern.
 
 
@@ -168,12 +170,17 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
 - debug.angle.backend:
 
-  Properti ini mengatur backend grafis untuk ANGLE (Almost Native Graphics Layer Engine), sebuah lapisan abstraksi yang memungkinkan aplikasi menggunakan API grafis OpenGL ES di atas backend lain, seperti Direct3D (di Windows) atau Vulkan.
+  Properti ini mengatur backend grafis untuk ANGLE (Almost Native Graphics Layer Engine), sebuah lapisan abstraksi yang memungkinkan aplikasi menggunakan API grafis OpenGL ES di atas backend lain, seperti Direct3D (di Windows) atau Vulkan (lintas-platfrom).
 
    value:
-   - default : menggunakan backend default yang ditentukan oleh ANGLE.
-   - d3d11 : menggunakan Direct3D 11 sebagai backend.
-   - vulkan : menggunakan Vulkan sebagai backend.
+   - default: memilih backend default yang disarankan oleh sistem operasi atau perangkat.
+   - d3d11: nenggunakan Direct3D 11 sebagai backend untuk menjalankan panggilan OpenGL ES. Opsi ini biasanya digunakan di perangkat berbasis Windows.
+   - d3d9: menggunakan Direct3D 9 sebagai backend. Umumnya digunakan untuk perangkat Windows yang lebih lama atau perangkat dengan dukungan hardware terbatas.
+   - gl: menggunakan OpenGL sebagai backend untuk panggilan OpenGL ES. Ini berarti rendering dilakukan langsung dengan OpenGL tanpa melalui penerjemah ANGLE.
+   - vulkan: menggunakan Vulkan sebagai backend untuk menerjemahkan OpenGL ES. Vulkan memberikan performa yang lebih tinggi dan kontrol yang lebih baik atas GPU (disarankan).
+   - metal: menggunakan Metal sebagai backend. Ini biasanya digunakan pada perangkat Apple (macOS/iOS) untuk meningkatkan performa grafis.
+   - null: menonaktifkan backend, yang dapat digunakan untuk tujuan debugging di mana rendering grafis tidak diinginkan atau diperlukan.
+   - swiftshader: menggunakan SwiftShader sebagai backend untuk emulasi software rendering. Ini digunakan ketika tidak ada akselerasi perangkat keras yang tersedia
 
   Ini berguna untuk pengujian lintas platform atau untuk memastikan kompatibilitas grafis yang lebih luas dengan memilih backend yang lebih cocok dengan perangkat keras atau sistem operasi.
 
