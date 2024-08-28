@@ -63,26 +63,26 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
   Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger untuk menyelesaikan tugasnya lebih awal dari waktu yang dijadwalkan untuk menampilkan frame tertentu.
 
-  Nilai ini menunjukkan seberapa cepat SurfaceFlinger dapat memproses dan mengompilasikan semua buffer untuk frame sebelum batas waktu. Nilai yang lebih rendah menunjukkan kinerja yang baik, di mana SurfaceFlinger mampu menyelesaikan tugas lebih cepat dari waktu yang diharapkan.
+  valuenya menunjukkan seberapa cepat SurfaceFlinger dapat memproses dan mengompilasikan semua buffer untuk frame sebelum batas waktu. value yang lebih rendah menunjukkan kinerja yang baik, di mana SurfaceFlinger mampu menyelesaikan tugas lebih cepat dari waktu yang diharapkan.
 
 
 - debug.sf.late.sf.duration:
 
   Properti ini mencatat waktu (dalam milidetik atau mikrodetik) yang diperlukan oleh SurfaceFlinger jika terjadi keterlambatan dalam menyelesaikan tugasnya.
 
-  Nilai ini menunjukkan seberapa sering atau seberapa lama SurfaceFlinger tertunda dalam melakukan komposisi frame. Nilai yang lebih tinggi biasanya menunjukkan masalah performa, di mana SurfaceFlinger tidak dapat memproses buffer dalam waktu yang cukup singkat untuk mencegah penurunan kualitas tampilan (seperti stuttering atau lag).
+  value yang digunakan menunjukkan seberapa sering atau seberapa lama SurfaceFlinger tertunda dalam melakukan komposisi frame. value yang lebih tinggi biasanya menunjukkan masalah performa, di mana SurfaceFlinger tidak dapat memproses buffer dalam waktu yang cukup singkat untuk mencegah penurunan kualitas tampilan (seperti stuttering atau lag).
 
 - debug.sf.set_idle_timer_ms:
 
   Properti ini menentukan waktu dalam milidetik setelah SurfaceFlinger akan memasuki mode "idle" (diam) jika tidak ada aktivitas grafis yang terjadi.   Ketika perangkat dalam mode idle, ini menghemat daya dengan menurunkan frekuensi pembaruan layar.
-  Nilai ini mengatur berapa lama waktu tunggu setelah tidak ada frame yang diminta untuk ditampilkan.
+  value ini mengatur berapa lama waktu tunggu setelah tidak ada frame yang diminta untuk ditampilkan.
 
-  Jika nilai ini terlalu kecil, perangkat mungkin sering berpindah ke dan dari mode idle, yang bisa berdampak pada efisiensi daya dan performa. Nilai yang lebih tinggi bisa menunda transisi ke mode idle, menjaga layar tetap aktif lebih lama, yang bisa meningkatkan kelancaran animasi tetapi juga mengonsumsi lebih banyak daya.
+  Jika valuenya terlalu kecil, perangkat mungkin sering berpindah ke dan dari mode idle, yang bisa berdampak pada efisiensi daya dan performa. value yang lebih tinggi bisa menunda transisi ke mode idle, menjaga layar tetap aktif lebih lama, yang bisa meningkatkan kelancaran animasi tetapi juga mengonsumsi lebih banyak daya.
 
 
 - debug.sf.hw:
 
-  Properti ini biasanya digunakan untuk mengaktifkan atau menonaktifkan akselerasi perangkat keras untuk SurfaceFlinger. Nilai "1" mengaktifkan akselerasi perangkat keras, sedangkan "0" menonaktifkannya.
+  Properti ini biasanya digunakan untuk mengaktifkan atau menonaktifkan akselerasi perangkat keras untuk SurfaceFlinger. value "1" mengaktifkan akselerasi perangkat keras, sedangkan "0" menonaktifkannya.
 
 
 - debug.egl.hw:
@@ -112,7 +112,7 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
   Menentukan offset waktu (dalam nanodetik) untuk fase akhir aplikasi dalam mode FPS tinggi.
   Ini mengatur seberapa terlambat aplikasi dapat menunda rendering dalam skenario frame rate tinggi tanpa menyebabkan masalah tampilan.
 
-  Kedua properti ini digunakan untuk mengontrol fase offset aplikasi pada frame rate tinggi.
+  *Kedua properti diatas digunakan untuk mengontrol fase offset aplikasi pada frame rate tinggi.
   Mengoptimalkan nilai-nilai ini memungkinkan pengaturan yang lebih presisi untuk aplikasi yang membutuhkan performa tinggi (seperti game atau aplikasi AR/VR).
 
 
@@ -163,7 +163,7 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
    - gles : menggunakan OpenGL ES sebagai backend rendering.
    - vulkan : menggunakan Vulkan sebagai backend rendering.
 
-   Pengaturan ini memungkinkan pengembang atau insinyur sistem untuk menguji dan mengoptimalkan performa grafis dengan memilih backend yang paling sesuai dengan perangkat keras atau aplikasi tertentu.
+   Pengaturan ini memungkinkan developer untuk menguji dan mengoptimalkan performa grafis dengan memilih backend yang paling sesuai dengan perangkat keras atau aplikasi tertentu.
 
 
 - debug.angle.backend:
@@ -196,7 +196,7 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
   Properti ini menentukan ambang batas (threshold) untuk pengaturan multiple frame rate oleh SurfaceFlinger.
   Ini mengatur seberapa besar perbedaan antara frame rate yang diinginkan dan frame rate tampilan aktual agar dianggap signifikan.
 
-  Nilai ini bisa berguna dalam pengaturan tampilan dengan frame rate variabel, membantu memastikan bahwa tampilan selalu disesuaikan dengan frame rate yang paling optimal untuk perangkat dan kondisi aplikasi saat itu.
+  value ini bisa berguna dalam pengaturan tampilan dengan frame rate variabel, membantu memastikan bahwa tampilan selalu disesuaikan dengan frame rate yang paling optimal untuk perangkat dan kondisi aplikasi saat itu.
 
 
 - debug.sf.disable_backpressure:
@@ -212,8 +212,8 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
   Properti ini menentukan waktu (dalam milidetik) setelah lapisan aktif (active layer) akan dicache atau dihapus dari cache oleh SurfaceFlinger.
   Caching layer bisa meningkatkan kinerja dengan menghindari komposisi ulang frame yang tidak berubah.
 
-  Nilai yang lebih tinggi memungkinkan layer tetap dicache lebih lama, yang bisa menghemat waktu komposisi dan meningkatkan kinerja, tetapi bisa mengonsumsi lebih banyak memori.
-  Nilai yang lebih rendah bisa mengurangi penggunaan memori tetapi meningkatkan beban kerja komposisi.
+  value yang lebih tinggi memungkinkan layer tetap dicache lebih lama, yang bisa menghemat waktu komposisi dan meningkatkan kinerja, tetapi bisa mengonsumsi lebih banyak memori.
+  value yang lebih rendah bisa mengurangi penggunaan memori tetapi meningkatkan beban kerja komposisi.
 
 
 - debug.sf.enable_adpf_cpu_hint:
