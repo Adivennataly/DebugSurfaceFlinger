@@ -1,26 +1,30 @@
-Apa itu Debugging SurfaceFlinger?
+## Apa itu SurfaceFlinger?
+
+SurfaceFlinger adalah server komposisi di sistem Android yang menggabungkan berbagai buffer dari aplikasi, widget, dan antarmuka sistem menjadi satu tampilan yang disusun dan dikirim ke layar.
+
+Ini bertanggung jawab untuk menangani tugas-tugas penting seperti mengelola frame buffer, menangani synchronization antar proses grafis, memastikan refresh rate yang optimal, dan mengelola berbagai layer grafis (misalnya, aplikasi, status bar, navigasi, dll).
+
+#Fungsi Utama SurfaceFlinger:
+
+Rendering dan Komposisi: SurfaceFlinger mengambil data dari buffer grafis yang dihasilkan oleh aplikasi dan menyusunnya ke dalam satu gambar yang utuh untuk ditampilkan di layar.
+
+Synchronisasi: Mengatur sinkronisasi frame antara aplikasi dan perangkat keras tampilan (Display), misalnya menggunakan teknik V-Sync untuk mencegah tearing.
+
+Pengelolaan Layer: Mengelola berbagai layer aplikasi, sistem, dan widget dengan memastikan bahwa setiap layer ditampilkan dengan benar dan pada waktu yang tepat.
+
+Optimalisasi Performa: Menggunakan akselerasi perangkat keras (GPU) untuk mengoptimalkan kinerja rendering dan meminimalkan latensi.
+
+## Apa itu Debugging SurfaceFlinger?
 
 Debugging SurfaceFlinger adalah proses untuk mendiagnosis, memantau, dan mengoptimalkan kinerja SurfaceFlinger, sebuah komponen penting dalam sistem Android yang bertanggung jawab untuk mengelola semua tampilan grafis di layar.
 SurfaceFlinger bertugas mengompilasikan buffer dari berbagai aplikasi atau layer menjadi satu gambar yang kemudian ditampilkan di layar.
 
 Ini adalah bagian integral dari sistem rendering grafis Android, yang menggunakan akselerasi perangkat keras (GPU) untuk memastikan tampilan yang halus dan responsif.
 
-Apa itu SurfaceFlinger?
-
-SurfaceFlinger adalah server komposisi di sistem Android yang menggabungkan berbagai buffer dari aplikasi, widget, dan antarmuka sistem menjadi satu tampilan yang disusun dan dikirim ke layar.
-
-Ini bertanggung jawab untuk menangani tugas-tugas penting seperti mengelola frame buffer, menangani synchronization antar proses grafis, memastikan refresh rate yang optimal, dan mengelola berbagai layer grafis (misalnya, aplikasi, status bar, navigasi, dll.).
-Fungsi Utama SurfaceFlinger:
-
-Rendering dan Komposisi: SurfaceFlinger mengambil data dari buffer grafis yang dihasilkan oleh aplikasi dan menyusunnya ke dalam satu gambar yang utuh untuk ditampilkan di layar.
-Synchronisasi: Mengatur sinkronisasi frame antara aplikasi dan perangkat keras tampilan (Display), misalnya menggunakan teknik V-Sync untuk mencegah tearing.
-Pengelolaan Layer: Mengelola berbagai layer aplikasi, sistem, dan widget dengan memastikan bahwa setiap layer ditampilkan dengan benar dan pada waktu yang tepat.
-Optimalisasi Performa: Menggunakan akselerasi perangkat keras (GPU) untuk mengoptimalkan kinerja rendering dan meminimalkan latensi.
-
 
 Debugging SurfaceFlinger melibatkan berbagai teknik dan alat untuk memantau, menganalisis, dan mengoptimalkan proses rendering dan komposisi grafis yang dikelola oleh SurfaceFlinger. Berikut adalah beberapa aspek penting dari debugging SurfaceFlinger:
 
-Memantau Kinerja Rendering:
+# Memantau Kinerja Rendering:
 
 Mengukur dan menganalisis kinerja rendering grafis, seperti frame rate, latensi, dan waktu komposisi.
 Menggunakan alat seperti Systrace atau Perfetto untuk mengumpulkan dan memvisualisasikan data kinerja SurfaceFlinger.
@@ -211,9 +215,16 @@ Properti ini menentukan apakah HWUI (Hardware UI Rendering) menggunakan Hint Man
 
 Menggunakan Hint Manager bisa membantu mengoptimalkan penggunaan sumber daya dengan menyesuaikan kebutuhan grafis dengan kondisi saat ini, seperti performa GPU atau kebutuhan daya perangkat.
 
+## Requirement
+properti bersifat debugging, tidak membutuhkan akses root.
 
+- ADB and run the file use command :
+  `sh /storage/emulated/0/Download/service.sh`
+  
+ bisa juga dengan menambah properti secara manual dengan command `setprop/resetprop` satu-persatu.
+ jika ingin menonaktifkan cukup dengan restart/reboot perangkat.
 
-
-
-
-#Credit: Adinata | @adivennataly
+*tidak menyebabkan softbrick ataupun bootloop.
+## Tested on
+  • MIUI 13 Android 12
+  • MIUI 14 Android 13
