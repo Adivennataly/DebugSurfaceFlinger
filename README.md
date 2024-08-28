@@ -1,6 +1,6 @@
 ## Apa itu SurfaceFlinger?
 
-SurfaceFlinger adalah server komposisi di sistem Android yang menggabungkan berbagai buffer dari aplikasi, widget, dan antarmuka sistem menjadi satu tampilan yang disusun dan dikirim ke layar.
+SurfaceFlinger adalah pengelola komposisi di sistem Android yang menggabungkan berbagai buffer dari aplikasi, widget, dan antarmuka sistem menjadi satu tampilan yang disusun dan dikirim ke layar.
 
 Ini bertanggung jawab untuk menangani tugas-tugas penting seperti mengelola frame buffer, menangani synchronization antar proses grafis, memastikan refresh rate yang optimal, dan mengelola berbagai layer grafis (misalnya, aplikasi, status bar, navigasi, dll).
 
