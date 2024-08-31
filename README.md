@@ -236,6 +236,15 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
   Menggunakan Hint Manager bisa membantu mengoptimalkan penggunaan sumber daya dengan menyesuaikan kebutuhan grafis dengan kondisi saat ini, seperti performa GPU atau kebutuhan daya perangkat.
 
+## Penting!
+Perlu diketahui bahwa properti ini untuk mengatur waktu fase rendering, dan modifikasinya bisa mempengaruhi bagaimana frame dirender dan ditampilkan di layar. Dalam kasus tertentu, mengatur properti ini dengan benar bisa mengurangi latensi, menghaluskan animasi, atau mengurangi stutter, yang semuanya berkontribusi pada performa yang lebih baik.
+
+Karena properti ini bersifat debugging dan bukan untuk penggunaan jangka panjang, perubahan yang salah atau tidak sesuai bisa menyebabkan penurunan performa, seperti rendering yang tidak stabil, tearing, atau bahkan crash pada aplikasi.
+
+Mengubah properti SurfaceFlinger dan properti debugging lainnya terutama pada perangkat Android non-root bisa memiliki efek pada performa, tetapi hasilnya sering tidak konsisten dan bersifat sementara.
+
+Properti-properti ini terutama ditujukan untuk pengembangan dan debugging, sehingga peningkatan yang diperoleh cenderung bersifat minor dan sementara. Jika Anda mencari peningkatan performa yang lebih substansial, biasanya diperlukan penyesuaian pada tingkat sistem yang lebih dalam, yang sering kali memerlukan akses root atau pembaruan firmware resmi dari produsen perangkat.
+
 ## Syarat yang dibutuhkan
 properti bersifat debugging, tidak membutuhkan akses root.
 
