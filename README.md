@@ -243,7 +243,7 @@ Karena properti ini bersifat debugging dan bukan untuk penggunaan jangka panjang
 
 Mengubah properti SurfaceFlinger dan properti debugging lainnya terutama pada perangkat Android non-root bisa memiliki efek pada performa, tetapi hasilnya sering tidak konsisten dan bersifat sementara.
 
-Properti-properti ini terutama ditujukan untuk pengembangan dan debugging, sehingga peningkatan yang diperoleh cenderung bersifat minor dan sementara. Jika Anda mencari peningkatan performa yang lebih substansial, biasanya diperlukan penyesuaian pada tingkat sistem yang lebih dalam, yang sering kali memerlukan akses root atau pembaruan firmware resmi dari produsen perangkat.
+Properti-properti ini terutama ditujukan untuk pengembangan dan debugging, sehingga peningkatan yang diperoleh cenderung bersifat minor dan sementara. Jika Anda mencari peningkatan performa yang lebih substansial, biasanya diperlukan penyesuaian pada tingkat sistem yang lebih dalam, yang sering kali memerlukan akses root.
 
 ## Syarat yang dibutuhkan
 properti bersifat debugging, tidak membutuhkan akses root.
