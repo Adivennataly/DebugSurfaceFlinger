@@ -28,6 +28,7 @@ resetprop -n debug.sf.disable_backpressure 1
 resetprop -n debug.sf.frame_rate_multiple_threshold 120
 resetprop -n debug.sf.layer_caching_active_layer_timeout_ms 1000
 resetprop -n debug.sf.enable_adpf_cpu_hint true
+resetprop -n debug.sf.enable_advanced_sf_phase_offset 1
 
 # OpenGL Hardware Acceleration
 resetprop -n debug.egl.hw 0
