@@ -213,6 +213,9 @@ berikut penjelasan properti Debugging yang berhubungan dengan HWUI dan SurfaceFl
 
   Menonaktifkan backpressure bisa meningkatkan throughput rendering untuk aplikasi yang sangat membutuhkan performa tinggi, tetapi ini juga bisa meningkatkan konsumsi daya dan menyebabkan masalah stabilitas atau latensi jika perangkat keras tidak bisa mengikuti kecepatan rendering aplikasi.
 
+- debug.sf.use_phase_offsets_as_durations:
+
+- Properti ini digunakan untuk mengubah cara SurfaceFlinger memperlakukan phase offsets, mungkin dengan memperlakukan nilai-nilai tersebut sebagai durasi waktu (misalnya, dalam milidetik) daripada sebagai offset yang langsung digunakan dalam perhitungan waktu.
 
 - debug.sf.layer_caching_active_layer_timeout_ms:
 
