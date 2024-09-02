@@ -253,11 +253,11 @@ properti bersifat debugging, tidak membutuhkan akses root.
 
 - Download file service.sh lalu gunakan terminal (ADB/LADB/Brevent/Termux) untuk menjalankan script file :
 
-      sh /storage/emulated/0/Download/service.sh
+      sh /storage/emulated/0/Download/sf.sh
   
 - untuk pengguna non-root :
 
-      sh /storage/emulated/0/Download/service-nr.sh
+      sh /storage/emulated/0/Download/sf-nr.sh
   
 - bisa juga dengan menambah properti secara manual (copy-paste dari file)
   untuk pengguna non-root harus menggunakan command `setprop debug.hwui.renderer`
