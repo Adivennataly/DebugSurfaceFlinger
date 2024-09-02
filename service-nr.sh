@@ -28,6 +28,7 @@ setprop debug.sf.disable_backpressure 1
 setprop debug.sf.frame_rate_multiple_threshold 120
 setprop debug.sf.layer_caching_active_layer_timeout_ms 1000
 setprop debug.sf.enable_adpf_cpu_hint true
+setprop debug.sf.use_phase_offsets_as_durations 1
 
 # OpenGL Hardware Acceleration
 setprop debug.egl.hw 0
